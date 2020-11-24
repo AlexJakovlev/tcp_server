@@ -41,6 +41,7 @@ int main() {
     check(client_socket = accept(server_socket, (SA *)&client_addr,
                                  (socklen_t *)&addr_size),
           "accept field");
+
     printf("Connected!\n");
     handle_connection(client_socket);
   }
@@ -73,7 +74,7 @@ void handle_connection(int client_socket) {
   printf("REQUEST: %s\n", buffer);
 
   // realpath "/home/alex/build-tsp_server-Desktop-Debug"
-  char *fullpath = realpath(*&buffer, *&actualpath);
+  char *fullpath = realpath(buffer, actualpath);
 
   fflush(stdout);
 
