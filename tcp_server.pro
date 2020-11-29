@@ -10,5 +10,7 @@ LIBS +=  -lpthread
 
 SOURCES += \
         main.cpp \
+    myqueue.cpp
 
 HEADERS += \
+    myqueue.h
