@@ -1,5 +1,6 @@
 #include "myqueue.h"
 #include <arpa/inet.h>
+#include <fcntl.h>
 #include <iostream>
 #include <limits.h>
 #include <pthread.h>
@@ -50,11 +51,11 @@ int main() {
     printf("waiting for connections...\n");
     fflush(stdout);
     addr_size = sizeof(SA_IN);
+
     check(client_socket = accept(server_socket, (SA *)&client_addr,
                                  (socklen_t *)&addr_size),
           "accept field");
 
-    printf("Connected!\n");
     //    pthread_t t;
     int *pclient = (int *)malloc(sizeof(int));
     *pclient = client_socket;
